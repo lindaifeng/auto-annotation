@@ -1,0 +1,48 @@
+# 服务端口
+server:
+  port: 8881
+
+# 激活配置文件
+spring:
+  application:
+    name: auto-annotation
+  profiles:
+    active: druid
+
+# redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
+# 开始功能注解
+auto:
+  version: @project.version@
+  enable:
+    login-required: true
+    repeat-submit: true
+    rate-limit: true
+    operate-log: true
+    encryption-data: true
+  # 限流配置
+  memory-type: REDIS
+  memory-flag: sessionId
+  lua-path: lua/rateLimit.lua
+  #加解密配置
+  encrypt:
+    encryptType: SM4
+    pubKeyName: pubKey
+
+    #aes密钥 128
+    #    priKey: edebc11bf73a1adb050fb97dde023ecb
+    #des密钥 32位
+    #    priKey: 12345678
+    #sm2私钥
+    #    priKey: 5b27a37cf7305146c062f4b59b257d1888e9f5e65c2017b9c48556aaf27d9f5b
+    #sm4私钥 128位 16个字符
+    priKey: 13b2d3f047502666
+#RSA和DSA
+
+
+
+
